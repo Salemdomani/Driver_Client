@@ -37,7 +37,6 @@
             this.JobLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.ListenerWorker = new System.ComponentModel.BackgroundWorker();
-            this.ReporterWorker = new System.ComponentModel.BackgroundWorker();
             this.HelloTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -95,10 +94,6 @@
             // 
             this.ListenerWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ListenerWorker_DoWork);
             // 
-            // ReporterWorker
-            // 
-            this.ReporterWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ReporterWorker_DoWork);
-            // 
             // HelloTimer
             // 
             this.HelloTimer.Interval = 30000;
@@ -131,7 +126,6 @@
         private System.Windows.Forms.Label JobLabel;
         private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker ListenerWorker;
-        private System.ComponentModel.BackgroundWorker ReporterWorker;
         private System.Windows.Forms.Timer HelloTimer;
     }
 }

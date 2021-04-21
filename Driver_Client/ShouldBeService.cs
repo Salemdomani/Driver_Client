@@ -45,7 +45,7 @@ namespace Driver_Client
             catch (SqlException ex)
             {
                 Console.WriteLine("SQL Error");
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
 
         }
@@ -62,7 +62,7 @@ namespace Driver_Client
             catch (NoInternetException ex)
             {
                 Console.WriteLine("Internet Error");
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
 
         }
@@ -94,7 +94,7 @@ namespace Driver_Client
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
                 if (chrome.driverIsActive())
                     chrome.Close();
             }
@@ -113,11 +113,6 @@ namespace Driver_Client
         private void ListenerWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             server.StartListening();
-        }
-
-        private void ReporterWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            Reporter.Report(e.Argument as string);
         }
         #endregion
 
@@ -164,7 +159,7 @@ namespace Driver_Client
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
         }
 
@@ -205,17 +200,17 @@ namespace Driver_Client
             catch (AlreadyLikedException ex)
             {
                 Console.WriteLine(ex.Message);
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
             catch (BlockedException ex)
             {
                 SQLserver.ReportBlocked(ex.profile);
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                ReporterWorker.RunWorkerAsync(ex.Message);
+                Reporter.ReportAsync(ex.Message);
             }
             finally
             {
@@ -228,7 +223,7 @@ namespace Driver_Client
         void JobIsDone()
         {
             SQLserver.ThisJobIsDone(todos.First());
-            ReporterWorker.RunWorkerAsync("done a job with id :"+todos.First().JOB.Id);
+            Reporter.ReportAsync("done a job with id :"+todos.First().JOB.Id);
             todos.RemoveAt(0);
         }
         #endregion

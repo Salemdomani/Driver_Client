@@ -17,11 +17,18 @@ namespace Driver_Client
                 using (var stream = new StreamWriter("Log.txt", true))
                     stream.WriteLine(DateTime.Now + " : " + text);
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Cannot report");
-            }
+            catch{ }
             
+        }
+
+        public static async Task ReportAsync(string text)
+        {
+            try
+            {
+                using (var stream = new StreamWriter("Log.txt", true))
+                    stream.WriteLineAsync(DateTime.Now + " : " + text);
+            }
+            catch { }
         }
     }
 }
