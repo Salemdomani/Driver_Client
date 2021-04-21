@@ -15,7 +15,7 @@ namespace Driver_Client
             try
             {
                 using (var stream = new StreamWriter("Log.txt", true))
-                    stream.WriteLine(DateTime.Now + " : " + text);
+                    stream.WriteLineAsync(DateTime.Now + " : " + text);
             }
             catch{ }
             
@@ -26,7 +26,7 @@ namespace Driver_Client
             try
             {
                 using (var stream = new StreamWriter("Log.txt", true))
-                    stream.WriteLineAsync(DateTime.Now + " : " + text);
+                    await stream.WriteLineAsync(DateTime.Now + " : " + text);
             }
             catch { }
         }
