@@ -35,7 +35,7 @@ namespace Driver_Client
             catch (Exception)
             {
 
-                MessageBox.Show("cannot send data");
+                Console.WriteLine("cannot send data");
             }
             
 
