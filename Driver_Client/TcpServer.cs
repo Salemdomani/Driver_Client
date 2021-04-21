@@ -8,20 +8,22 @@ namespace Driver_Client
 {
     class TcpServer
     {
-        private TcpListener _server;
+        TcpListener listener;
         ShouldBeService form;
+        public bool isRunning = true;
+
         public TcpServer(string ipAddress,int port,ShouldBeService form)
         {
-            _server = new TcpListener(IPAddress.Any, port);
+            listener = new TcpListener(IPAddress.Any, port);
             this.form = form;
         }
 
         public void StartListening()
         {
-            _server.Start();
-            while (true)
+            listener.Start();
+            while (isRunning)
             {
-                var client = _server.AcceptTcpClient();
+                var client = listener.AcceptTcpClient();
                 var sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
                 var sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
                 try
@@ -29,22 +31,21 @@ namespace Driver_Client
                     var incom = sReader.ReadLine();
                     if (incom == "Start")
                     {
+                        form.Start();
                         sWriter.WriteLine("VMS " + ShouldBeService.VmNum + " Started Successfully");
-                        form.Start(); 
                         sWriter.Flush();
                     }
 
                     else if (incom == "Stop")
-                    {
-                        sWriter.WriteLine("VMS " + ShouldBeService.VmNum + " Stopped Successfully");
+                    {   
                         form.Stop();
+                        sWriter.WriteLine("VMS " + ShouldBeService.VmNum + " Stopped Successfully");
                         sWriter.Flush();
                     }
                 }
-                catch (Exception)
-                {
-
-                    Console.WriteLine("Stopped suddenly");
+                catch (Exception ex){
+                    Console.WriteLine("something went wrong :"+ex);
+                    Reporter.Report(ex.Message);
                 }
                 
                     

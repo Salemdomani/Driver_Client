@@ -51,7 +51,7 @@ namespace Driver_Client
             try
             {
                 if (driver.FindElement(By.LinkText("أعجبني")).GetAttribute("aria-pressed") == "true")
-                    throw new AlreadyLikedException("already liked");
+                    throw new AlreadyLikedException("Already Liked profile : " + currentProfile);
                 driver.FindElement(By.LinkText("أعجبني")).Click();
             }
             catch (NoSuchElementException)
@@ -59,7 +59,7 @@ namespace Driver_Client
                 try
                 {
                     if (driver.FindElement(By.LinkText("Like")).GetAttribute("aria-pressed") == "true")
-                        throw new AlreadyLikedException("already liked");
+                        throw new AlreadyLikedException("Already Liked profile : "+currentProfile);
                     driver.FindElement(By.LinkText("Like")).Click();
                 }
                 catch (NoSuchElementException)
@@ -70,7 +70,7 @@ namespace Driver_Client
                     }
                     catch (NoSuchElementException)
                     {
-                        throw new NotDoneException("not done");
+                        throw new NotDoneException("not done profile : "+currentProfile);
                     }
 
                 }
@@ -102,7 +102,7 @@ namespace Driver_Client
                     }
                     catch (NoSuchElementException)
                     {
-                        Console.WriteLine("Not Done");
+                        throw new NotDoneException("not done profile : " + currentProfile);
                     }
 
                 }
@@ -135,7 +135,7 @@ namespace Driver_Client
                     }
                     catch (NoSuchElementException)
                     {
-                        Console.WriteLine("Not Done");
+                        throw new NotDoneException("not done profile : " + currentProfile);
                     }
 
                 }
@@ -166,7 +166,7 @@ namespace Driver_Client
                 driver.FindElement(By.PartialLinkText("تسجيل الخروج")).Click();
                 driver.FindElement(By.LinkText("تسجيل الخروج")).Click();
                 driver.Dispose();
-                throw new BlockedException(currentProfile);
+                throw new BlockedException("Blocked profile : " + currentProfile);
             }
             catch (NoSuchElementException)
             {
@@ -175,20 +175,20 @@ namespace Driver_Client
                     driver.FindElement(By.PartialLinkText("Log out")).Click();
                     driver.FindElement(By.LinkText("Log Out")).Click();
                     driver.Dispose();
-                    throw new BlockedException(currentProfile);
+                    throw new BlockedException("Blocked profile : " + currentProfile);
                 }
                 catch (NoSuchElementException)
                 {
                     try
                     {
                         driver.FindElementByPartialLinkText("تسجيل");
-                        throw new BlockedException(currentProfile);
+                        throw new BlockedException("Blocked profile : "+currentProfile);
                     }
                     catch (NoSuchElementException)
                     {
 
                         driver.FindElementByPartialLinkText("Sign Up");
-                        throw new BlockedException(currentProfile);
+                        throw new BlockedException("Blocked profile : " + currentProfile);
                     }
                 }
             }

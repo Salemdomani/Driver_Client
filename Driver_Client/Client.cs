@@ -13,6 +13,7 @@ namespace Driver_Client
         int port;
         //StreamReader _sReader;
         StreamWriter _sWriter;
+
         public Client(string ipAddress,int port)
         {
             this.ipAddress = ipAddress;
@@ -21,7 +22,6 @@ namespace Driver_Client
 
         public void Send(string data)
         {
-            
             try
             {
                 _client = new TcpClient();
@@ -32,15 +32,8 @@ namespace Driver_Client
                 _sWriter.Flush();
                 //return _sReader.ReadLine();
             }
-            catch (Exception)
-            {
-
-                Console.WriteLine("cannot send data");
-            }
-            
-
+            catch (Exception ex){Console.WriteLine("cannot send data :"+ex.Message);}
         }
 
-       
     } 
 }

@@ -18,10 +18,11 @@ namespace Driver_Client
         string host = SQLserver.getHost();
 
         List<TODO> todos = new List<TODO>();
-
+  
         Chrome chrome;
         Client client;
         TcpServer server;
+
         public ShouldBeService()
         {
             InitializeComponent();
@@ -131,6 +132,7 @@ namespace Driver_Client
         private void ShouldBeService_FormClosing(object sender, FormClosingEventArgs e)
         {
             SQLserver.ReportVmIs("DOWN");
+            server.isRunning = false;
         }
 
         private void StartBtn_Click(object sender, EventArgs e)
@@ -218,7 +220,6 @@ namespace Driver_Client
             finally
             {
                 chrome.Close();
-
             }
             return success;
 
@@ -227,6 +228,7 @@ namespace Driver_Client
         void JobIsDone()
         {
             SQLserver.ThisJobIsDone(todos.First());
+            ReporterWorker.RunWorkerAsync("done a job with id :"+todos.First().JOB.Id);
             todos.RemoveAt(0);
         }
         #endregion

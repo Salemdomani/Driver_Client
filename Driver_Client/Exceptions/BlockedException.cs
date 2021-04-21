@@ -5,9 +5,10 @@ namespace Driver_Client
     internal class BlockedException : Exception
     {
         public int profile;
-        public BlockedException(int profile)
+
+        public BlockedException(string message) : base(message)
         {
-            this.profile = profile;
+            profile = Convert.ToInt32(message.Split()[3]);
         }
 
     }
