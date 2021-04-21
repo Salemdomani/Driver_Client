@@ -15,6 +15,7 @@ namespace Driver_Client
 
         public static int VmNum;
         bool isBusy = false;
+        string host = "172.16.1.36";
 
         List<TODO> todos = new List<TODO>();
 
@@ -25,8 +26,8 @@ namespace Driver_Client
         {
             InitializeComponent();
             VmNum = int.Parse(File.ReadAllText("vms.txt"));
-            client = new Client("172.16.1.36", 12000);
-            server = new TcpServer("172.16.1.36", 11000, this);
+            client = new Client(host, 12000);
+            server = new TcpServer(host, 11000, this);
             chrome = new Chrome();
         }
 
