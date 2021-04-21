@@ -8,7 +8,8 @@ namespace Driver_Client
     {
         public static string getHost()
         {
-            return "172.16.1.37";
+            SQLdb db = new SQLdb();
+            return db.Configs.Single(x=>x.Name=="ServerIP").Value;
         }
         public static List<TODO> FindJobs()
         {

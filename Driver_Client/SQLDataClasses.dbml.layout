@@ -33,12 +33,18 @@
         <classShapeMoniker Id="904506d1-2cf3-442e-8264-e5a690021ea8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SQLdb/TODO/TODO_JOB" />
       <nodes>
         <classShapeMoniker Id="fa7b3c76-54ff-4736-9f8f-c1964aa2f309" />
         <classShapeMoniker Id="8f4ac59a-4f90-4e5d-bb0c-ac3007757d67" />
       </nodes>
     </associationConnector>
+    <classShape Id="a018e97a-b1f9-4417-b049-0fae50b4fdda" absoluteBounds="6.125, 2.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/SQLdb/Config" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61b0acd1-d121-4789-b35c-c22d1b9db0eb" absoluteBounds="6.14, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

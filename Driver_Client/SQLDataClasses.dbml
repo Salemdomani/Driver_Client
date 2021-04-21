@@ -37,4 +37,10 @@
       <Association Name="TODO_JOB" Member="JOB" ThisKey="Id" OtherKey="Id" Type="JOB" Cardinality="One" />
     </Type>
   </Table>
+  <Table Name="dbo.Configs" Member="Configs">
+    <Type Name="Config">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
