@@ -6,7 +6,10 @@ namespace Driver_Client
 {
     class SQLserver
     {
-
+        public static string getHost()
+        {
+            return "172.16.1.37";
+        }
         public static List<TODO> FindJobs()
         {
             SQLdb db = new SQLdb();

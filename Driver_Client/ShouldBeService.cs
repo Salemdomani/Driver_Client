@@ -15,7 +15,7 @@ namespace Driver_Client
 
         public static int VmNum;
         bool isBusy = false;
-        string host = "172.16.1.36";
+        string host = SQLserver.getHost();
 
         List<TODO> todos = new List<TODO>();
 
