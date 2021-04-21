@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="JobsDataClasses">
+  <DataContextMoniker Name="/SQLdb" />
+  <nestedChildShapes>
+    <classShape Id="904506d1-2cf3-442e-8264-e5a690021ea8" absoluteBounds="3.5, 3.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/SQLdb/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2e7024d-c8f5-4689-9036-6bbaf04d3506" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45cc28bd-ce36-492c-84b4-58b581c39cd0" absoluteBounds="0.75, 4.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/SQLdb/Vm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea6edf2e-b076-4294-9c2a-62e77eb080c4" absoluteBounds="0.765, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8f4ac59a-4f90-4e5d-bb0c-ac3007757d67" absoluteBounds="3.5, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/SQLdb/JOB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab7134ee-05aa-4894-a519-6351ac0d35c8" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa7b3c76-54ff-4736-9f8f-c1964aa2f309" absoluteBounds="0.75, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/SQLdb/TODO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="379b5f9b-4e56-48d5-a551-15d4b4d025e7" absoluteBounds="0.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.06814697265625); (3.5 : 5.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLdb/Vm/Vm_Account" />
+      <nodes>
+        <classShapeMoniker Id="45cc28bd-ce36-492c-84b4-58b581c39cd0" />
+        <classShapeMoniker Id="904506d1-2cf3-442e-8264-e5a690021ea8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLdb/TODO/TODO_JOB" />
+      <nodes>
+        <classShapeMoniker Id="fa7b3c76-54ff-4736-9f8f-c1964aa2f309" />
+        <classShapeMoniker Id="8f4ac59a-4f90-4e5d-bb0c-ac3007757d67" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

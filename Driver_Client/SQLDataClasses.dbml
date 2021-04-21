@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VMS" Class="SQLdb" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.16.0.7;Initial Catalog=VMS;User ID=sa" SettingsObjectName="Driver_Client.Properties.Settings" SettingsPropertyName="VMSConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Accounts" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VMS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Vm_Account" Member="Vm" ThisKey="VMS" OtherKey="Id" Type="Vm" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vms" Member="Vms">
+    <Type Name="Vm">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Vm_Account" Member="Accounts" ThisKey="Id" OtherKey="VMS" Type="Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JOBS" Member="JOBs">
+    <Type Name="JOB">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="post_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="action" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="text" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="TODO_JOB" Member="TODO" ThisKey="Id" OtherKey="Id" Type="TODO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TODOS" Member="TODOs">
+    <Type Name="TODO">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VMS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="TODO_JOB" Member="JOB" ThisKey="Id" OtherKey="Id" Type="JOB" Cardinality="One" />
+    </Type>
+  </Table>
+</Database>
