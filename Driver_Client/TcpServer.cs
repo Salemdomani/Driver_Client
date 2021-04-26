@@ -28,15 +28,16 @@ namespace Driver_Client
                 var sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
                 try
                 {
-                    var incom = sReader.ReadLine();
-                    if (incom == "Start")
+                    var income = sReader.ReadLine();
+                    if (income == "Start")
                     {
                         form.Start();
+
                         sWriter.WriteLine("VMS " + ShouldBeService.VmNum + " Started Successfully");
                         sWriter.Flush();
                     }
 
-                    else if (incom == "Stop")
+                    else if (income == "Stop")
                     {   
                         form.Stop();
                         sWriter.WriteLine("VMS " + ShouldBeService.VmNum + " Stopped Successfully");

@@ -28,7 +28,7 @@ namespace Driver_Client
                 _client.Connect(ipAddress, port);
                 _sWriter = new StreamWriter(_client.GetStream(), Encoding.ASCII);
                 //_sReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
-                _sWriter.WriteLine(data);
+                _sWriter.WriteLineAsync(data);
                 _sWriter.Flush();
                 //return _sReader.ReadLine();
             }

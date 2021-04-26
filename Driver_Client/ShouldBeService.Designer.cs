@@ -35,7 +35,6 @@
             this.DRworker = new System.ComponentModel.BackgroundWorker();
             this.Repeater = new System.Windows.Forms.Timer(this.components);
             this.JobLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.ListenerWorker = new System.ComponentModel.BackgroundWorker();
             this.HelloTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -45,7 +44,7 @@
             this.StartBtn.Location = new System.Drawing.Point(12, 76);
             this.StartBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(205, 28);
+            this.StartBtn.Size = new System.Drawing.Size(205, 65);
             this.StartBtn.TabIndex = 2;
             this.StartBtn.Text = "Start";
             this.StartBtn.UseVisualStyleBackColor = true;
@@ -78,18 +77,6 @@
             this.JobLabel.TabIndex = 12;
             this.JobLabel.Text = "Jobs";
             // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(11, 109);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Get Joined Groub";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // ListenerWorker
             // 
             this.ListenerWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ListenerWorker_DoWork);
@@ -104,7 +91,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(233, 152);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.JobLabel);
             this.Controls.Add(this.StartBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -124,7 +110,6 @@
         private System.ComponentModel.BackgroundWorker DRworker;
         private System.Windows.Forms.Timer Repeater;
         private System.Windows.Forms.Label JobLabel;
-        private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker ListenerWorker;
         private System.Windows.Forms.Timer HelloTimer;
     }

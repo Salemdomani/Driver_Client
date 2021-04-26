@@ -156,16 +156,7 @@ namespace Driver_Client
             {
                 client.Send("Hi from " + VmNum + " and I'm " + isBusy);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Reporter.Report(ex.Message);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            chrome.JoinedGroups();
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         #endregion
 
