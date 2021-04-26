@@ -76,6 +76,43 @@ namespace Driver_Client
                 }
             }
         }
+
+        public void Unlike(string id)
+        {
+            driver.Navigate().GoToUrl("https://mbasic.facebook.com/" + id);
+            try
+            {
+                if (driver.FindElement(By.LinkText("أعجبني")).GetAttribute("aria-pressed") == "true")
+                    driver.FindElement(By.LinkText("أعجبني")).Click();
+                else
+                    throw new NotDoneException("not liked profile : " + currentProfile);
+
+            }
+            catch (NoSuchElementException)
+            {
+                try
+                {
+                    if (driver.FindElement(By.LinkText("Like")).GetAttribute("aria-pressed") == "true")
+                        driver.FindElement(By.LinkText("Like")).Click();
+                    else
+                        throw new NotDoneException("not liked profile : " + currentProfile);
+
+                }
+                catch (NoSuchElementException)
+                {
+                    try
+                    {
+                        CheckIfBlocked();
+                    }
+                    catch (NoSuchElementException)
+                    {
+                        throw new NotDoneException("not done profile : " + currentProfile);
+                    }
+
+                }
+            }
+        }
+
         public void Comment(string id, string comment)
         {
 

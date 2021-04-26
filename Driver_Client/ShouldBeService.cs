@@ -185,6 +185,9 @@ namespace Driver_Client
                     case "like":
                         chrome.Like(id);
                         break;
+                    case "unlike":
+                        chrome.Unlike(id);
+                        break;
                     case "comment":
                         chrome.Comment(id, text);
                         break;
