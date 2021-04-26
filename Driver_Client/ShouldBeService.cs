@@ -45,7 +45,7 @@ namespace Driver_Client
             catch (SqlException ex)
             {
                 Console.WriteLine("SQL Error");
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
 
         }
@@ -62,7 +62,7 @@ namespace Driver_Client
             catch (NoInternetException ex)
             {
                 Console.WriteLine("Internet Error");
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
 
         }
@@ -94,7 +94,7 @@ namespace Driver_Client
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
                 if (chrome.driverIsActive())
                     chrome.Close();
             }
@@ -159,7 +159,7 @@ namespace Driver_Client
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
         }
 
@@ -200,17 +200,17 @@ namespace Driver_Client
             catch (AlreadyLikedException ex)
             {
                 Console.WriteLine(ex.Message);
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
             catch (BlockedException ex)
             {
                 SQLserver.ReportBlocked(ex.profile);
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Reporter.ReportAsync(ex.Message);
+                Reporter.Report(ex.Message);
             }
             finally
             {
@@ -223,7 +223,7 @@ namespace Driver_Client
         void JobIsDone()
         {
             SQLserver.ThisJobIsDone(todos.First());
-            Reporter.ReportAsync("done a job with id :"+todos.First().JOB.Id);
+            Reporter.Report("done a job with id :"+todos.First().JOB.Id);
             todos.RemoveAt(0);
         }
         #endregion

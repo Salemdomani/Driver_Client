@@ -20,15 +20,5 @@ namespace Driver_Client
             catch{ }
             
         }
-
-        public static async Task ReportAsync(string text)
-        {
-            try
-            {
-                using (var stream = new StreamWriter("Log.txt", true))
-                    await stream.WriteLineAsync(DateTime.Now + " : " + text);
-            }
-            catch { }
-        }
     }
 }
