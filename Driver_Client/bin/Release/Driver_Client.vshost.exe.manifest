@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Driver_Client.exe" size="94208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Driver_Client.exe" size="49664">
       <assemblyIdentity name="Driver_Client" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ODkQ4CerAWAtfMj2qoufQLOW81x0oQNityDCCY3ro4c=</dsig:DigestValue>
+        <dsig:DigestValue>ciC4ieGzqgNBz1g6bGRo8TMIzuSrZvXex8h8DEpWRV8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

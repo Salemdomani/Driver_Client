@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Driver_Client.exe.manifest" size="4781">
+    <dependentAssembly dependencyType="install" codebase="Driver_Client.exe.manifest" size="4783">
       <assemblyIdentity name="Driver_Client.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cXfM1wsnJeeSsSDJm1nuSdoYVpc9pnjHzpNFWvkX8fw=</dsig:DigestValue>
+        <dsig:DigestValue>idMDgmzU2KLsX23Yenu5DrkqMM6r9/FQ0GgoIZBLCp8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
