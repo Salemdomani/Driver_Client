@@ -83,7 +83,11 @@ namespace Driver_Client
             try
             {
                 if (driver.FindElement(By.LinkText("أعجبني")).GetAttribute("aria-pressed") == "true")
+                {
                     driver.FindElement(By.LinkText("أعجبني")).Click();
+                    driver.FindElementByPartialLinkText("أعجبني").Click();
+                }
+                    
                
 
             }
@@ -92,7 +96,11 @@ namespace Driver_Client
                 try
                 {
                     if (driver.FindElement(By.LinkText("Like")).GetAttribute("aria-pressed") == "true")
+                    {
                         driver.FindElement(By.LinkText("Like")).Click();
+                        driver.FindElementByPartialLinkText("Like").Click();
+                    }
+                        
                  
 
                 }
