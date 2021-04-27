@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Driver_Client
@@ -20,7 +21,7 @@ namespace Driver_Client
             this.port = port;
         }
 
-        public void Send(string data)
+        public void SendAsync(string data)
         {
             try
             {
@@ -31,6 +32,7 @@ namespace Driver_Client
                 _sWriter.WriteLineAsync(data);
                 _sWriter.Flush();
                 //return _sReader.ReadLine();
+                _client.Close();
             }
             catch (Exception ex){Console.WriteLine("cannot send data :"+ex.Message);}
         }

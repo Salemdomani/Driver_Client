@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Driver_Client
@@ -100,7 +101,7 @@ namespace Driver_Client
             }
             finally
             {
-                client.Send("VMS " + VmNum + " done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count);
+                client.SendAsync("VMS " + VmNum + " done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count);
             }
 
         }
@@ -154,7 +155,7 @@ namespace Driver_Client
         {
             try
             {
-                client.Send("Hi from " + VmNum + " and I'm " + isBusy);
+                Task.Factory.StartNew(() => client.SendAsync("Hi from " + VmNum + " and I'm " + isBusy));
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
