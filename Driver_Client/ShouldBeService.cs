@@ -101,7 +101,7 @@ namespace Driver_Client
             }
             finally
             {
-                client.SendAsync("VMS " + VmNum + " done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count);
+                client.Send("VMS " + VmNum + " done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count);
             }
 
         }
@@ -155,7 +155,7 @@ namespace Driver_Client
         {
             try
             {
-                Task.Factory.StartNew(() => client.SendAsync("Hi from " + VmNum + " and I'm " + isBusy));
+                Task.Factory.StartNew(() => client.Send("Hi from " + VmNum + " and I'm " + isBusy));
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
