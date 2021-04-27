@@ -84,8 +84,7 @@ namespace Driver_Client
             {
                 if (driver.FindElement(By.LinkText("أعجبني")).GetAttribute("aria-pressed") == "true")
                     driver.FindElement(By.LinkText("أعجبني")).Click();
-                else
-                    throw new NotDoneException("not liked profile : " + currentProfile);
+               
 
             }
             catch (NoSuchElementException)
@@ -94,8 +93,7 @@ namespace Driver_Client
                 {
                     if (driver.FindElement(By.LinkText("Like")).GetAttribute("aria-pressed") == "true")
                         driver.FindElement(By.LinkText("Like")).Click();
-                    else
-                        throw new NotDoneException("not liked profile : " + currentProfile);
+                 
 
                 }
                 catch (NoSuchElementException)
