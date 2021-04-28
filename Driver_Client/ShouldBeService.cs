@@ -27,7 +27,7 @@ namespace Driver_Client
         public ShouldBeService()
         {
             InitializeComponent();
-            VmNum = int.Parse(File.ReadAllText("vms.txt"));
+            VmNum = int.Parse(Environment.UserName.Where(char.IsDigit).ToArray().ToString());
             client = new Client(host, 12000);
             server = new TcpServer(host, 11000, this);
             chrome = new Chrome();
