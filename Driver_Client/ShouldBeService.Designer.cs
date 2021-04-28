@@ -34,17 +34,17 @@
             this.SQLworker = new System.ComponentModel.BackgroundWorker();
             this.DRworker = new System.ComponentModel.BackgroundWorker();
             this.Repeater = new System.Windows.Forms.Timer(this.components);
-            this.JobLabel = new System.Windows.Forms.Label();
             this.ListenerWorker = new System.ComponentModel.BackgroundWorker();
             this.HelloTimer = new System.Windows.Forms.Timer(this.components);
+            this.logListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // StartBtn
             // 
-            this.StartBtn.Location = new System.Drawing.Point(12, 76);
+            this.StartBtn.Location = new System.Drawing.Point(12, 192);
             this.StartBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(205, 65);
+            this.StartBtn.Size = new System.Drawing.Size(258, 50);
             this.StartBtn.TabIndex = 2;
             this.StartBtn.Text = "Start";
             this.StartBtn.UseVisualStyleBackColor = true;
@@ -67,16 +67,6 @@
             this.Repeater.Interval = 30000;
             this.Repeater.Tick += new System.EventHandler(this.Repeater_Tick);
             // 
-            // JobLabel
-            // 
-            this.JobLabel.AutoSize = true;
-            this.JobLabel.Location = new System.Drawing.Point(16, 32);
-            this.JobLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.JobLabel.Name = "JobLabel";
-            this.JobLabel.Size = new System.Drawing.Size(38, 17);
-            this.JobLabel.TabIndex = 12;
-            this.JobLabel.Text = "Jobs";
-            // 
             // ListenerWorker
             // 
             this.ListenerWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ListenerWorker_DoWork);
@@ -86,12 +76,21 @@
             this.HelloTimer.Interval = 30000;
             this.HelloTimer.Tick += new System.EventHandler(this.HelloTimer_Tick);
             // 
+            // logListBox
+            // 
+            this.logListBox.FormattingEnabled = true;
+            this.logListBox.ItemHeight = 16;
+            this.logListBox.Location = new System.Drawing.Point(12, 7);
+            this.logListBox.Name = "logListBox";
+            this.logListBox.Size = new System.Drawing.Size(258, 180);
+            this.logListBox.TabIndex = 3;
+            // 
             // ShouldBeService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(233, 152);
-            this.Controls.Add(this.JobLabel);
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Controls.Add(this.logListBox);
             this.Controls.Add(this.StartBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -100,7 +99,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShouldBeService_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -109,9 +107,9 @@
         private System.ComponentModel.BackgroundWorker SQLworker;
         private System.ComponentModel.BackgroundWorker DRworker;
         private System.Windows.Forms.Timer Repeater;
-        private System.Windows.Forms.Label JobLabel;
         private System.ComponentModel.BackgroundWorker ListenerWorker;
         private System.Windows.Forms.Timer HelloTimer;
+        private System.Windows.Forms.ListBox logListBox;
     }
 }
 

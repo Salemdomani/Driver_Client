@@ -102,6 +102,7 @@ namespace Driver_Client
             finally
             {
                 client.Send("VMS " + VmNum + " done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count);
+                this.Invoke((MethodInvoker) delegate { logListBox.Items.Add("done " + count + " " + job.action.TrimEnd() + "s out of " + chrome.profiles.Count); });
             }
 
         }
